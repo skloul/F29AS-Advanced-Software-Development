@@ -13,14 +13,14 @@ void display();
 
 int main() {
     // Example usage of the push function
-    push(10);
-    push(20);
-    push(30);
-    push(40);
-    push(50);
+    push(1);
+    push(2);
+    push(3);
+    push(4);
+    push(5);
 
     // Attempting to push another value (stack overflow)
-    push(60);
+    push(6);
 
     // Display the stack
     display();
