@@ -12,7 +12,8 @@ node* head = NULL;  // Global head pointer, initially set to NULL (empty list)
 
 // Function to insert a new node at the end of the linked list
 void insertNode(int value);
-
+// Function to print_Data_value a new node at the end of the linked list
+void print_Data_values();
 int main() {
     // Insert nodes with values 5, 10, 15, and 7 into the linked list
     insertNode(5);
@@ -45,5 +46,27 @@ void insertNode(int value) {
         // Append the new node at the end of the list
         // This item/value was added successfully
         last->next = new_node;
+    }
+}
+void print_Data_values() {
+    node* new_node, *last;  // Declare pointers for the new node and the last node
+     /*
+    // Create a new node and allocate memory for it
+    new_node = new node;
+    new_node->data = value; // Set the data of the new node
+    new_node->next = NULL;  // Initialize the next pointer of the new node to NULL
+*/
+    // Check if the list is empty
+    if (head == NULL) {
+        cout << "This list is empty, the head = Null \n";
+    } else {
+        // If the list is not empty, traverse to the last node
+        last = head;
+        cout << "head ->";
+        while (last->next != NULL) {
+            cout << last->data <<"->";  // Move to the next node until the last node is reached
+            last = last->next;
+        }
+         cout<< last->data <<"-> Null\t";  // Move to the next node until the last node is reached
     }
 }
