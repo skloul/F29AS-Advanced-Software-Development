@@ -1,4 +1,4 @@
-// Example 1: Linked List
+// Example 1: Linked List Complete
 #include<iostream>
 using namespace std;
 
@@ -12,21 +12,24 @@ node* head = NULL;  // Global head pointer, initially set to NULL (empty list)
 
 // Function to insert a new node at the end of the linked list
 void insertNode(int value);
-// Function to print_Data_value a new node at the end of the linked list
 void print_Data_values();
+void delete_a_node(int value);
+
 int main() {
     // Insert nodes with values 5, 10, 15, and 7 into the linked list
     insertNode(5);
-    insertNode(10);
-    insertNode(15);
-    insertNode(7);
-
+   insertNode(10);
+   insertNode(15);
+   insertNode(7);
+    print_Data_values() ;
+    delete_a_node(1);
+    print_Data_values() ;
     // The print part has been removed as per your request
     return 0;
 }
 
 // Function definition for inserting a node
-void insertNode(int value) {
+void  insertNode(int value){
     node* new_node, *last;  // Declare pointers for the new node and the last node
 
     // Create a new node and allocate memory for it
@@ -48,6 +51,7 @@ void insertNode(int value) {
         last->next = new_node;
     }
 }
+
 void print_Data_values() {
     node* new_node, *last;  // Declare pointers for the new node and the last node
      /*
@@ -69,4 +73,40 @@ void print_Data_values() {
         }
          cout<< last->data <<"-> Null\t";  // Move to the next node until the last node is reached
     }
+}
+
+void delete_a_node(int value) {
+    // Check if the list is empty
+    if (head == NULL) {
+        cout << "Error: List is empty.\n";
+        return;
+    }
+
+    node* current = head;
+    node* previous= head;
+
+    // Check if the head node itself holds the value to be deleted
+    if (current->data == value) {
+        head = current->next; // Move head to the next node
+        delete current;       // Free memory (use delete if using new)
+        cout << "Node with value " << value << " deleted.\n";
+        return;
+    }
+
+    // Traverse the list to find the node to delete
+    while (current->next != NULL && current->data != value) {
+        previous = current;
+        current = current->next;
+    }
+
+    // Value not found
+    if (current->next == NULL) {
+        cout << "Error: Value " << value << " not found in the list.\n";
+        return;
+    }
+
+    // Unlink the node and free memory
+    previous->next = current->next;
+    delete current; // Free memory (use delete if using new)
+    cout << "Node with value " << value << " deleted.\n";
 }
