@@ -43,6 +43,7 @@ void insertNode(int value) {
             last = last->next;  // Move to the next node until the last node is reached
         }
         // Append the new node at the end of the list
+        // This item/value was added successfully
         last->next = new_node;
     }
 }
