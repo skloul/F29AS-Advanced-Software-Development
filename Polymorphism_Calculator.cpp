@@ -6,7 +6,7 @@ using namespace std;
 class MathOperation {
 public:
     virtual double calculate(double a, double b) {
-        std::cout << "Base MathOperation calculation." << std::endl;
+        cout << "Base MathOperation calculation." << endl;
         return 0.0; // Default implementation
     }
     virtual ~MathOperation() {} //Important for base classes with virtual functions.
@@ -38,9 +38,9 @@ int main() {
     MathOperation* operation2 = new Subtraction();
     MathOperation* operation3 = new Multiplication();
 
-    std::cout << "Addition: " << operation1->calculate(5.0, 3.0) << std::endl;
-    std::cout << "Subtraction: " << operation2->calculate(5.0, 3.0) << std::endl;
-    std::cout << "Multiplication: " << operation3->calculate(5.0, 3.0) << std::endl;
+    cout << "Addition: " << operation1->calculate(5.0, 3.0) << endl;
+    cout << "Subtraction: " << operation2->calculate(5.0, 3.0) << endl;
+    cout << "Multiplication: " << operation3->calculate(5.0, 3.0) << endl;
 
     delete operation1;
     delete operation2;
